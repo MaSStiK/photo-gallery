@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image"
 import normalImg from "@/assets/photos/normal.webp"
 import heightImg from "@/assets/photos/height.webp"

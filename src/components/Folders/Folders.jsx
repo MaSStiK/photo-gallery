@@ -1,11 +1,19 @@
 import "./Folders.css"
 
 import { readdir } from 'fs/promises';
+import { readdirSync } from 'fs';
 
 async function readFiles() {
-    const directoryPath = process.cwd() + "/public/folders"
+    const path = require('node:path'); 
+    const directoryPath = path.join(process.cwd(), "folders")
     try {
-        const files = await readdir(directoryPath);
+        const folders = await readdir(directoryPath);
+        const files = {}
+
+        folders.forEach(folder => {
+            files[folder] = readdirSync(directoryPath + "/" + folder);
+        })
+
         return files
     } catch (err) {
         console.log("Unable to scan directory: " + err);
@@ -17,9 +25,12 @@ export default async function Folders() {
     
     return (
         <div className="folders">
-            {Folders.map((folder, i) => (
+            {Object.keys(Folders).map((folder, i) => (
                 <div key={i}>
-                    <p>{folder}</p>
+                    <h1>{folder}</h1>
+                    {Folders[folder].map((file, i) => (
+                        <h3 key={i}>{file}</h3>
+                    ))}
                 </div>
             ))}
         </div>

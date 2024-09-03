@@ -1,0 +1,32 @@
+:root {
+    --img-small: 12px;
+}
+
+/* Ссылка (Указывается для тега <a> (Link) если в нем только текст) */
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-link {
+    font-size: var(--p);
+    color: var(--text-link);
+    cursor: pointer;
+    
+}
+
+/* Наведение на пк */
+@media (hover: hover) {
+    .text-link:hover,
+    .text-link:focus-visible {
+        text-decoration: underline;
+    }
+}
+
+/* Клик на телефоне */
+@media (hover: none) {
+    /* На мобильных девайсах ссылки подчеркнуты */
+    .text-link {
+        text-decoration: underline;
+    }
+}

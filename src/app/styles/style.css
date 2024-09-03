@@ -1,0 +1,26 @@
+@import "./text.css";
+@import "./link.css";
+@import "./button.css";
+@import "./input.css";
+
+
+:root {
+    /* Основные цвета */
+    --bg-primary: #eeeeee;
+
+    /* Отступы между и внутри блоков */
+    --gap-small: 12px;
+    --gap-medium: 20px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+    list-style-type: none;
+    scroll-behavior: smooth;
+    color-scheme: light;
+
+    transition: .2s all;
+}

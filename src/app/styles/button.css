@@ -1,0 +1,80 @@
+:root {
+    /* Цвета кнопок */
+    --button-bg: #d6d6d6;
+    --button-hover: #acacac;
+
+    /* Обычная кнопка (картинка на 12px меньше - 6px отступ) */
+    --button-height: 36px;
+    --button-img: 24px;
+
+    /* Большая кнопка (для профиля и тд.) */
+    --button-height-big: 48px;
+    --button-img-big: 36px;
+
+    /* padding и gap для одинакового значения с другими элементами */
+    --button-padding: 4px;
+    --button-gap: 4px;
+
+}
+
+/* Обычная кнопка (Серая) */
+button {
+    width: min(300px, 100%);
+    min-height: var(--button-height);
+    padding: var(--button-padding);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--button-gap);
+
+    color: var(--text-white);
+    font-size: var(--p);
+    text-decoration: none;
+
+    outline: none;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--button-bg);
+
+    overflow: hidden;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* Отключенная кнопка */
+button:disabled {
+    cursor: not-allowed;
+    color: var(--text-dark);
+    background-color: var(--button-bg-disabled);
+}
+
+/* Текст внутри отключенной кнопки */
+button:disabled p {
+    color: var(--text-dark);
+}
+
+/* Наведение на пк */
+@media (hover: hover) {
+    button:hover,
+    button:focus-visible {
+        background-color: var(--button-hover);
+    }
+
+    button:disabled:hover,
+    button:disabled:focus-visible {
+        background-color: var(--button-bg-disabled);
+    }
+}
+
+
+/* Клик на телефоне */
+@media (hover: none) {
+    button:active {
+        background-color: var(--button-hover);
+    }
+
+    button:disabled:active {
+        background-color: var(--button-bg-disabled);
+    }
+}

@@ -2,7 +2,7 @@ import { readdirSync } from "fs";
 import { readdir } from "fs/promises";
 
 export async function GET() {
-    const directoryPath = process.cwd() + "\\folders"
+    const directoryPath = process.cwd() + "/folders"
     try {
         const folders = await readdir(directoryPath);
         const files = {}

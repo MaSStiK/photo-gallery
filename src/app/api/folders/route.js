@@ -8,7 +8,7 @@ export async function GET() {
         const files = {}
 
         folders.forEach(folder => {
-            files[folder] = readdirSync(directoryPath + "\\" + folder);
+            files[folder] = readdirSync(directoryPath + "/" + folder);
         })
 
         return Response.json(files)

@@ -1,38 +1,47 @@
+"use client";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+
 import "./Folders.css"
 
-import { readdir } from 'fs/promises';
-import { readdirSync } from 'fs';
+export default function Folders() {
+    const [Folders, setFolders] = useState();
 
-async function readFiles() {
-    const path = require('node:path'); 
-    const directoryPath = path.join(process.cwd(), "folders")
-    try {
-        const folders = await readdir(directoryPath);
-        const files = {}
+    useEffect(()=>{
+        try {
+            fetch(location.origin + "/api/folders")
+            .then(res => res.json())
+            .then(data => setFolders(data))
+        } catch (error) {
+          console.log("error", error)
+        }
+    },[])
 
-        folders.forEach(folder => {
-            files[folder] = readdirSync(directoryPath + "/" + folder);
-        })
+    useEffect(() => {
+        console.log("Folders", Folders);
+    }, [Folders])
 
-        return files
-    } catch (err) {
-        console.log("Unable to scan directory: " + err);
-    }
-}
-
-export default async function Folders() {
-    const Folders = await readFiles()
-    
     return (
         <div className="folders">
-            {Object.keys(Folders).map((folder, i) => (
+            {/* {Object.keys(Folders).map((folder, i) => (
                 <div key={i}>
                     <h1>{folder}</h1>
-                    {Folders[folder].map((file, i) => (
-                        <h3 key={i}>{file}</h3>
-                    ))}
+                    {Folders[folder].map((file, i) => {
+                        // let imageSrc = dynamic(() => import(`/folders/${folder}/${file}`))
+                        // console.log(imageSrc);
+                        
+                        return (
+                            <div key={i}>
+                                <Image
+                                    src={require(`../../../folders/${folder}/${file}`)}
+                                    alt="Picture of the author"
+                                />
+                                <h3>{file}</h3>
+                            </div>
+                        )
+                    })}
                 </div>
-            ))}
+            ))} */}
         </div>
     )
 }

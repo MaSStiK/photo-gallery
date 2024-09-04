@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useState } from "react"
+import dynamic from "next/dynamic";
 import Image from "next/image"
 
 import "./Folders.css"
 
 export default function Folders() {
-    const [Folders, setFolders] = useState();
+    const [Folders, setFolders] = useState([]);
 
     useEffect(()=>{
         try {
@@ -22,26 +23,24 @@ export default function Folders() {
     }, [Folders])
 
     return (
-        <div className="folders">
-            {/* {Object.keys(Folders).map((folder, i) => (
-                <div key={i}>
-                    <h1>{folder}</h1>
-                    {Folders[folder].map((file, i) => {
-                        // let imageSrc = dynamic(() => import(`/folders/${folder}/${file}`))
-                        // console.log(imageSrc);
-                        
-                        return (
-                            <div key={i}>
+        <section className="folders">
+            {Folders.length !== 0 && Folders.map((folder, i) => (
+                <div className="folder" key={i}>
+                    <h1>{folder.folder}</h1>
+                    {folder.files.map((file, i) => (
+                        <div key={i}>
+                            <div className="folder__image">
                                 <Image
-                                    src={require(`../../../folders/${folder}/${file}`)}
-                                    alt="Picture of the author"
+                                    src={require(`../../../folders/${folder.folder}/${file}`)}
+                                    alt="Photo"
+                                    priority={false}
                                 />
-                                <h3>{file}</h3>
                             </div>
-                        )
-                    })}
+                            <p>{file}</p>
+                        </div>
+                    ))}
                 </div>
-            ))} */}
-        </div>
+            ))}
+        </section>
     )
 }

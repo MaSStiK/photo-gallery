@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { readdir } from "fs/promises";
-import { readdirSync } from "fs";
+import { readdirSync, statSync } from "fs";
 
 export async function GET() {
-    const directoryPath = process.cwd() + "/folders"
+    const directoryPath = `${process.cwd()}/folders`
     try {
         const folders = await readdir(directoryPath);
         const files = []
@@ -11,7 +11,8 @@ export async function GET() {
         folders.forEach(folder => {
             files.push({
                 folder: folder,
-                files: readdirSync(directoryPath + "/" + folder)
+                birthtimeMs: statSync(`${directoryPath}/${folder}`).birthtimeMs,
+                files: readdirSync(`${directoryPath}/${folder}`)
             })
         })
 

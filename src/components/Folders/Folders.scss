@@ -1,0 +1,60 @@
+/* Секция с папками */
+.folders {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+/* Папка */
+.folder {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+
+    /* Наведение на пк */
+    @media (hover: hover) {
+        &:hover .folder__image,
+        &:focus-visible .folder__image {
+            scale: 1.05;
+        }
+    }
+
+    /* Клик на телефоне */
+    @media (hover: none) {
+        &:active .folder__image {
+            scale: 1.05;
+        }
+    }
+}
+
+.folder__image {
+    width: 100%;
+    object-fit: contain;
+    transition: 1s all;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.folder__label {
+    width: 100%;
+    height: 100%;
+    background-color: #00000055;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    h3 {
+        font-family: "Gill Sans MT", Calibri, sans-serif;
+        font-weight: 700;
+        color: var(--white-text);
+    }
+}

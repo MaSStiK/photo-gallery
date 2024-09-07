@@ -4,17 +4,18 @@ import normalImg from "@/assets/photos/normal.webp"
 import heightImg from "@/assets/photos/height.webp"
 import wideImg from "@/assets/photos/wide.webp"
 
-import "./Gallery.css"
+import "./Gallery.scss"
 
 export default function Gallery() {
     const Photos = [
         {image: normalImg},
         {image: normalImg},
-        {image: heightImg, class: "image-2r"},
+        {image: normalImg},
+        {image: heightImg,  class: "image-2r"},
         {image: normalImg},
         {image: normalImg},
-        {image: wideImg, class: "image-wide"},
-        {image: normalImg, class: "image-2c"},
+        {image: wideImg,    class: "image-wide"},
+        {image: normalImg,  class: "image-2c"},
         {image: normalImg},
         {image: normalImg},
         {image: normalImg},

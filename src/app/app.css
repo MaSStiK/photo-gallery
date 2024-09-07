@@ -34,10 +34,10 @@ hr {
   }
   
 @supports selector(::-webkit-scrollbar) {
-html::-webkit-scrollbar {
-    background: #b3b3b3;
-}
-html::-webkit-scrollbar-thumb {
-    background: var(--bg-primary);
-}
+    html::-webkit-scrollbar {
+        background: #b3b3b3;
+    }
+    html::-webkit-scrollbar-thumb {
+        background: var(--bg-primary);
+    }
 }

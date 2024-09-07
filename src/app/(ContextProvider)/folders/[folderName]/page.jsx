@@ -1,11 +1,11 @@
-import Gallery from "@/components/Gallery/Gallery"
 import Header from "@/components/Header/Header"
+import Files from "@/components/Files/Files"
 
-export default function gallery() {
+export default function FolderPage() {
     return (
         <article>
             <Header />
-            <Gallery />
+            <Files />
         </article>
     )
 }

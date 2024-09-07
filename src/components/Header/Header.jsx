@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link"
+import NavLink from "@/components/NavLink/NavLink"
 
-import "./Header.css"
+import "./Header.scss"
 
 export default function Header() {
     return (
@@ -11,9 +12,9 @@ export default function Header() {
 
             <nav>
                 <ul>
-                    <li><Link href="/gallery">Gallery</Link></li>
-                    <li><Link href="/folders">Folders</Link></li>
-                    <li><Link href="/contacts">Contacts</Link></li>
+                    <li><NavLink href="/gallery">Gallery</NavLink></li>
+                    <li><NavLink href="/folders">Folders</NavLink></li>
+                    <li><NavLink href="/contacts">Contacts</NavLink></li>
                 </ul>
             </nav>
         </header>

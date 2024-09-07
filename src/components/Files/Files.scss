@@ -1,0 +1,15 @@
+.files {
+    columns: 3 250px;
+    gap: var(--gap-medium);
+}
+
+
+.file__image {
+    width: 100%;
+    margin-bottom: var(--gap-medium);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

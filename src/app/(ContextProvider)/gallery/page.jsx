@@ -1,12 +1,11 @@
+import Gallery from "@/components/Gallery/Gallery"
 import Header from "@/components/Header/Header"
 
-import "./contacts.css"
-
-export default function ContactsPage() {
+export default function GalleryPage() {
     return (
         <article>
             <Header />
-            <h1>Contacts</h1>
+            <Gallery />
         </article>
     )
 }

@@ -1,9 +1,7 @@
 import Header from "@/components/Header/Header"
 import Folders from "@/components/Folders/Folders"
 
-import "./folders.css"
-
-export default function folders() {
+export default function FoldersPage() {
     return (
         <article>
             <Header />

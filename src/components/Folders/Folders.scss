@@ -2,7 +2,11 @@
 .folders {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 34px;
+
+    @media screen and (max-width: 900px) {
+        gap: var(--gap-medium);
+    }
 }
 
 /* Папка */

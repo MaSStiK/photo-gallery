@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react"
 import { DataContext } from "@/components/Context"
 import Link from "next/link"
 import Image from "next/image"
-import Loader from "../Loader/Loader"
+import Loader from "@/components/Loader/Loader"
 
 import "./Folders.scss"
 
@@ -29,7 +29,7 @@ export default function Folders() {
             }
         } else { // Если уже загружены - отображаем все из памяти
             // Устанавливаем папки для отображения
-            setFolders(Context.Folders.sort((a, b) => b.birthtimeMs - a.birthtimeMs))
+            setFolders(Context.Folders)
         }
     }, [])
 

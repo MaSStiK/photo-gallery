@@ -29,6 +29,7 @@ export default function Gallery() {
                     <Image
                         src={photo.image}
                         alt="Picture of the author"
+                        draggable="false"
                     />
                 </div>
             ))}

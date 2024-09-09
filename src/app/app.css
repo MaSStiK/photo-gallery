@@ -19,6 +19,10 @@ article {
     margin: 0 auto;
 }
 
+section {
+    width: 100%;
+}
+
 
 /* Разделитель */
 hr {
@@ -29,13 +33,15 @@ hr {
 
 @supports (scrollbar-color: auto) {
     html {
-      scrollbar-color: #b3b3b3 var(--bg-primary);
+        scrollbar-color: #b3b3b3 var(--bg-primary);
     }
   }
   
 @supports selector(::-webkit-scrollbar) {
     html::-webkit-scrollbar {
         background: #b3b3b3;
+        width: 12px;
+
     }
     html::-webkit-scrollbar-thumb {
         background: var(--bg-primary);

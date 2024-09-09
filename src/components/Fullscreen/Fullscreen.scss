@@ -1,0 +1,80 @@
+/* Модальное окно с функцией просмотра картинки (В максимальную ширину и высоту) */
+.fullscreen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #00000077;
+    }
+}
+
+.fullscreen__controls {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    button {
+        width: var(--button-height);
+    }
+
+    img {
+        filter: invert(1);
+    }
+}
+
+/* Отключаем transition */
+.fullscreen div {
+    transition: 0s all;
+}
+
+/* Блок удерживающий картинку по центру */
+.fullscreen__image-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    padding: var(--gap-medium);
+
+    @media screen and (max-width: 900px) {
+        padding: var(--gap-small);
+    }
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+
+/* Кнопка закрытия */
+.fullscreen__close {
+    width: var(--button-height);
+    height: var(--button-height);
+    z-index: 1;
+
+    position: fixed;
+    top: 4px;
+    right: 4px;
+}

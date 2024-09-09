@@ -1,9 +1,12 @@
 :root {
     /* Цвета кнопок */
-    --button-bg: #d6d6d6;
-    --button-hover: #acacac;
+    --button-bg: #d4d4d4;
+    --button-hover: #bdbdbd;
 
-    /* Обычная кнопка (картинка на 12px меньше - 6px отступ) */
+    --button-bg-tp: transparent;
+    --button-hover-tp: #a8a8a888;
+
+    /* Обычная кнопка */
     --button-height: 36px;
     --button-img: 24px;
 
@@ -28,18 +31,22 @@ button {
     align-items: center;
     gap: var(--button-gap);
 
-    color: var(--text-white);
+    color: black;
     font-size: var(--p);
     text-decoration: none;
 
     outline: none;
     border: none;
-    border-radius: var(--border-radius);
+    border-radius: 4px;
     background-color: var(--button-bg);
 
     overflow: hidden;
     user-select: none;
     cursor: pointer;
+}
+
+button.tp {
+    background-color: var(--button-bg-tp);
 }
 
 /* Отключенная кнопка */
@@ -61,6 +68,11 @@ button:disabled p {
         background-color: var(--button-hover);
     }
 
+    button.tp:hover,
+    button.tp:focus-visible {
+        background-color: var(--button-hover-tp);
+    }
+
     button:disabled:hover,
     button:disabled:focus-visible {
         background-color: var(--button-bg-disabled);
@@ -72,6 +84,10 @@ button:disabled p {
 @media (hover: none) {
     button:active {
         background-color: var(--button-hover);
+    }
+
+    button.tp:active {
+        background-color: var(--button-hover-tp);
     }
 
     button:disabled:active {

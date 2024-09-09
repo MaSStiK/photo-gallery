@@ -2,21 +2,20 @@
 @import url('https://fonts.cdnfonts.com/css/gill-sans-mt-2');
 
 :root {
-    --white-text: #F5F5F5;
+    --white-text: #f0f0f0;
     
     /* Размеры текста */
     --h1: 40px;
     --h2: 35px;
     --h3: 35px;
-    --p: 16px;
+    --p: 20px;
 }
 
-/* Контент в 100% */
 @media screen and (max-width: 900px) {
     :root {
-        --h1: 22px;
+        --h1: 24px;
         --h2: 20px;
-        --h3: 16px;
+        --h3: 18px;
         --p: 14px;
     }
 }

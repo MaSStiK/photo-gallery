@@ -1,9 +1,8 @@
 /* Секция с папками */
 .folders {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 1.5rem;
 }
 
 /* Папка */
@@ -32,6 +31,7 @@
     width: 100%;
     object-fit: contain;
     transition: 1s all;
+    margin-bottom: -4px; /* Под картинкой 4 пустых пикселя */
 
     img {
         width: 100%;

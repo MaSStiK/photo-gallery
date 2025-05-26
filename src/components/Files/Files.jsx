@@ -23,6 +23,7 @@ export default function Files() {
                 .then(data => {
                     // Устанавливаем папку для отображения
                     setFolder(findFolder(data, decodeURI(folderName)))
+                    
 
                     // Сохраняем все папки в память
                     Context.setFolders(data.sort((a, b) => b.birthtimeMs - a.birthtimeMs)) 

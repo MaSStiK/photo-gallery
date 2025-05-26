@@ -33,7 +33,9 @@ export default function Fullscreen({ src, closeFunc }) {
                 <Image src={imgCross} alt="center" />
             </button>
 
-            <TransformWrapper>
+            <TransformWrapper
+                initialScale={1}
+            >
                 <Controls />
                 <TransformComponent>
                     <div className="fullscreen__image-wrapper">

@@ -35,11 +35,13 @@ export default function Folders() {
 
     // Поиск картинки внутри папки для превью
     function getPreview(files) {
-        return files.find(file => file.toLowerCase().startsWith("preview"))
+        return files.find(file => file.toLowerCase().startsWith("preview")) || files[0]
     }
 
     // Пока грузятся файлы - показываем loader
     if (!Folders.length) return <Loader />
+    console.log(Folders);
+    
 
     return (
         <section className="folders">

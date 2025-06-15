@@ -1,24 +1,23 @@
-/* Контейнер Masonry */
-.my-masonry-grid {
-    display: flex;
-    margin-left: -var(--gap-small); /* компенсирует padding колонок */
+.files > h1 {
+    text-align: center;
+    margin-bottom: var(--gap-small);
+}
+ 
+.grid {
+    /* Masonry.js отрабатывает через JS, но для красоты центрируем */
+    margin: 0 auto;
 }
 
-/* Каждая колонка */
-.my-masonry-grid_column {
-    padding-left: var(--gap-small);
-    background-clip: padding-box;
-}
-
-/* Элемент-карточка */
+/* Карточка */
 .file__image {
-    margin-bottom: var(--gap-small); /* вертикальный gap = горизонтальному */
-    cursor: pointer;
-}
-
-.file__image img {
-    /* чисто для страховки, но Next.js <Image> через style тоже подтянет */
-    width: 100%;
-    height: auto;
+    width: calc((100% - 2 * var(--gap-small)) / 3);
     display: block;
+    margin-bottom: var(--gap-small);
+    cursor: pointer;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 }

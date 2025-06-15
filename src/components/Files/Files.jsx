@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { DataContext } from "@/components/Context";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import Loader from "@/components/Loader/Loader";
 import Fullscreen from "@/components/Fullscreen/Fullscreen";
-import Masonry from 'react-masonry-css';
+import Masonry from "masonry-layout";
 
 import "./Files.scss";
 
@@ -14,6 +14,7 @@ export default function Files() {
     const { galleryName } = useParams();
     const [Folder, setFolder] = useState(null);
     const [FullScreenSrc, setFullScreenSrc] = useState("");
+    const grid = useRef(null);
 
     useEffect(() => {
         if (!Context.Gallery || Context.Gallery.length === 0) {
@@ -39,16 +40,34 @@ export default function Files() {
         setFullScreenSrc("");
     }
 
+    useEffect(() => {
+        if (!grid.current) return;
+        const masonry = new Masonry(grid.current, {
+            itemSelector: ".file__image",
+            columnWidth: ".file__image",      // берём ширину из CSS
+            gutter: parseInt(getComputedStyle(document.documentElement)
+                            .getPropertyValue("--gap-small")),
+            percentPosition: true,            // позволяет работать с % ширинами
+            fitWidth: false,                  // контейнер растягивается на 100%
+        });
+
+        // перестраиваем на реcайз (необязательно, но помогает)
+        const onResize = () => masonry.layout();
+        window.addEventListener("resize", onResize);
+        return () => {
+            window.removeEventListener("resize", onResize);
+            masonry.destroy();
+        };
+    }, [Folder]);
+
     if (Folder === undefined) return <p>Folder not found</p>;
     if (!Folder || !Folder.files) return <Loader />;
 
     return (
         <section className="files">
-            <Masonry
-                breakpointCols={{ default: 3 }}
-                className="my-masonry-grid"
-                columnClassName="my-masonry-grid_column"
-            >
+            <h1>{Folder.folderName}</h1>
+            
+            <div className="grid" ref={grid}>
                 {Folder.files.map((file, i) => {
                     const previewSrc = require(`../../../gallery/${Folder.folderName}/${Folder.previews[i]}`);
                     const srcFullscreen = require(`../../../gallery/${Folder.folderName}/${file}`);
@@ -65,7 +84,7 @@ export default function Files() {
                     );
                 })}
             
-            </Masonry>
+            </div>
             {FullScreenSrc && <Fullscreen src={FullScreenSrc} closeFunc={closeFS} />}
         </section>
     );

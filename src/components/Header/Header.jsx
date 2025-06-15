@@ -12,8 +12,8 @@ export default function Header() {
 
             <nav>
                 <ul>
+                    <li><NavLink href="/portfolio">Portfolio</NavLink></li>
                     <li><NavLink href="/gallery">Gallery</NavLink></li>
-                    <li><NavLink href="/folders">Folders</NavLink></li>
                     <li><NavLink href="/contacts">Contacts</NavLink></li>
                 </ul>
             </nav>

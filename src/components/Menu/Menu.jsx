@@ -12,8 +12,8 @@ export default function Menu() {
                     <h2>Photographer</h2>
 
                     <ul>
+                        <li><Link href="/portfolio">Portfolio</Link></li>
                         <li><Link href="/gallery">Gallery</Link></li>
-                        <li><Link href="/folders">Folders</Link></li>
                         <li><Link href="/contacts">Contacts</Link></li>
                     </ul>
                 </div>

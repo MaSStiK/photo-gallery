@@ -1,13 +1,15 @@
 "use client";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-// Создание контекста приложения
-export const DataContext = createContext({})
+// Создание контекста
+export const DataContext = createContext(null);
 
 export function DataProvider({ children }) {
+    const [Gallery, setGallery] = useState([]);
+
     return (
-        <DataContext.Provider value={DataContext}>
+        <DataContext.Provider value={{ Gallery, setGallery }}>
             {children}
         </DataContext.Provider>
-    )
+    );
 }

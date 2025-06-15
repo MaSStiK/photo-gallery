@@ -1,5 +1,5 @@
-import Gallery from "@/components/Gallery/Gallery"
 import Header from "@/components/Header/Header"
+import Gallery from "@/components/Gallery/Gallery"
 
 export default function GalleryPage() {
     return (

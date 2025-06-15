@@ -50,7 +50,7 @@ export default function Files() {
                             .getPropertyValue("--gap-small")),
             percentPosition: true, // Позволяет работать с % ширинами
             fitWidth: false, // Контейнер растягивается на 100%
-            horizontalOrder: true // Приоритет заполнения слева на право
+            // horizontalOrder: true // Приоритет заполнения слева на право
         });
 
         // Перестраиваем на реcайз (необязательно, но помогает)

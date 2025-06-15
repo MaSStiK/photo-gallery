@@ -30,12 +30,12 @@ export default function Files() {
         return data.find(folder => folder.folderName === name.replaceAll("_", " "));
     }
 
-    function openFS(src) {
+    function openFS(src) { // Открытие полноэкранного просмотра
         document.body.style.overflow = "hidden";
         setFullScreenSrc(src);
     }
 
-    function closeFS() {
+    function closeFS() { // Закрытие полноэкранного просмотра
         document.body.style.overflow = "auto";
         setFullScreenSrc("");
     }
@@ -44,14 +44,15 @@ export default function Files() {
         if (!grid.current) return;
         const masonry = new Masonry(grid.current, {
             itemSelector: ".file__image",
-            columnWidth: ".file__image",      // берём ширину из CSS
+            columnWidth: ".file__image", // Берём ширину из CSS
             gutter: parseInt(getComputedStyle(document.documentElement)
                             .getPropertyValue("--gap-small")),
-            percentPosition: true,            // позволяет работать с % ширинами
-            fitWidth: false,                  // контейнер растягивается на 100%
+            percentPosition: true, // Позволяет работать с % ширинами
+            fitWidth: false, // Контейнер растягивается на 100%
+            horizontalOrder: true // Приоритет заполнения слева на право
         });
 
-        // перестраиваем на реcайз (необязательно, но помогает)
+        // Перестраиваем на реcайз (необязательно, но помогает)
         const onResize = () => masonry.layout();
         window.addEventListener("resize", onResize);
         return () => {
@@ -60,8 +61,8 @@ export default function Files() {
         };
     }, [Folder]);
 
-    if (Folder === undefined) return <p>Folder not found</p>;
-    if (!Folder || !Folder.files) return <Loader />;
+    if (Folder === undefined) return <p>Folder not found</p>; // Если папка не найдена
+    if (!Folder || !Folder.files) return <Loader />; // Если папка загружается - отображаем Loader
 
     return (
         <section className="files">

@@ -36,7 +36,7 @@ export async function GET() {
             }
 
             // Выбрать первый preview или null
-            const folderPreview = previews.length > 0 ? previews[0] : null;
+            const folderPreview = files.length > 0 ? files[0] : null;
 
             gallery.push({
                 folderName,

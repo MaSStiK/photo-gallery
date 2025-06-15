@@ -1,8 +1,8 @@
 /* Секция с папками */
 .gallery {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
 
     @media screen and (max-width: 900px) {
         gap: var(--gap-medium);
@@ -11,35 +11,43 @@
 
 /* Папка */
 .folder {
+    height: 400px;
+    max-height: 400px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
 
     /* Наведение на пк */
     @media (hover: hover) {
-        &:hover .folder__image,
-        &:focus-visible .folder__image {
-            scale: 1.05;
+        &:hover .folder__image img,
+        &:focus-visible .folder__image img {
+            transform: scale(1.05);
         }
     }
 
     /* Клик на телефоне */
     @media (hover: none) {
-        &:active .folder__image {
-            scale: 1.05;
+        &:active .folder__image img {
+            transform: scale(1.05);
         }
     }
 }
 
 .folder__image {
     width: 100%;
-    object-fit: contain;
     transition: 1s all;
     margin-bottom: -4px; /* Под картинкой 4 пустых пикселя */
 
     img {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+        position: absolute;
+        transition: 1s all;
+
+        transform: scale(1);
+        transform-origin: center center;
+        transition: transform 1s ease;
     }
 }
 

@@ -1,3 +1,10 @@
+.folder-not-found {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-medium);
+    align-items: center;
+}
+
 .files > h1 {
     text-align: center;
     margin-bottom: var(--gap-small);

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState, useRef, useContext } from "react";
+import Link from "next/link"
 import { DataContext } from "@/components/Context";
 import { useParams } from "next/navigation";
 import Image from "next/image";
@@ -61,7 +62,15 @@ export default function Files() {
         };
     }, [Folder]);
 
-    if (Folder === undefined) return <p>Folder not found</p>; // Если папка не найдена
+    if (Folder === undefined) return ( // Если папка не найдена
+        <div className="folder-not-found">
+            <p>Папка не найдена!</p>
+            <Link href="/gallery">
+                <button style={{width: "200px"}}>В галерею</button>
+            </Link>
+        </div>
+    );
+
     if (!Folder || !Folder.files) return <Loader />; // Если папка загружается - отображаем Loader
 
     return (

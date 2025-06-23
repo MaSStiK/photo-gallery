@@ -1,5 +1,5 @@
 "use client";
-import { DataProvider  } from "@/components/Context"
+import { DataProvider } from "@/components/Context"
 
 export default function Layout({ children }) {
     return (

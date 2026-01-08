@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "masonry-layout": "^4.2.2",
-    "next": "14.2.5",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^16.1.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-zoom-pan-pinch": "^3.6.1"
   },
   "devDependencies": {
